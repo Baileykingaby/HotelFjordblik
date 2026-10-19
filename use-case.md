@@ -61,7 +61,7 @@ Extensions:
 
 | Definition | Beskrivelse |
 |---|---|
-| Operation | `tildelMedarbejder(vagtId, medarbejderId)` |
+| Operation | `tildelMedarbejder(vagtId, medarbejder)` |
 | Cross reference | Bemande vagt |
 | Præbetingelser | Vagten og medarbejderen eksisterer. Vagten er ubemandet. Medarbejderen har den krævede rolle, er til rådighed og har ingen overlappende vagter. |
 | Postbetingelser | Medarbejderen er tilknyttet vagten, som nu er bemandet. |
