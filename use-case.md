@@ -41,4 +41,32 @@ Extensions:
         5. Hotelmanageren kan vælge en anden medarbejder i trin 3.
 
 
+
+## Use case 1: Bemande vagt
+
+### seMuligeMedarbejdere
+
+| Definition | Beskrivelse |
+|---|---|
+| Operation | `seMuligeMedarbejdere(vagtId)` |
+| Cross reference | Bemande vagt |
+| Præbetingelser | Vagten med `vagtId` eksisterer og er ubemandet. |
+| Postbetingelser | Systemet returnerer medarbejdere med den krævede rolle, som er til rådighed og ikke har overlappende vagter. |
+| Objekter | Ingen objekter oprettes eller slettes. |
+| Attributværdier | Ingen attributværdier ændres. |
+| Links | Ingen links oprettes eller fjernes. |
+| Resultat | En liste over mulige medarbejdere returneres. Domænets tilstand er uændret. |
+
+### tildelMedarbejder
+
+| Definition | Beskrivelse |
+|---|---|
+| Operation | `tildelMedarbejder(vagtId, medarbejderId)` |
+| Cross reference | Bemande vagt |
+| Præbetingelser | Vagten og medarbejderen eksisterer. Vagten er ubemandet. Medarbejderen har den krævede rolle, er til rådighed og har ingen overlappende vagter. |
+| Postbetingelser | Medarbejderen er tilknyttet vagten, som nu er bemandet. |
+| Objekter | Ingen objekter oprettes eller slettes. |
+| Attributværdier | Ingen attributværdier ændres. Vagtens `vagtId`, `dato`, `starttid` og `sluttid` bevares. |
+| Links | Et nyt link oprettes mellem `Medarbejder` og `Vagt`. Eksisterende links bevares. |
+| Resultat | Tildelingen bekræftes. Ved ugyldig tildeling forbliver domænets tilstand uændret. |
  
