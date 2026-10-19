@@ -1,10 +1,10 @@
+# Aktører & Mål
 ## Aktør
-Hotelmanageren 
-medarbjeder
+- Hotelmanageren 
+- Medarbjeder
 
-## mål
-bemande vagt
-
+## Mål
+- Bemand vagt
 
 # Use-Case 1
 Scope: Personaleplanlægning
@@ -14,14 +14,14 @@ Level: User goal
 primary actor: Hotelmanageren
 
 Stakeholders and interests: 
-    Hotelmanageren: vil gerne bemande et ubemandet vagt med en medarbejder.
-    Medarbjeder: vil gerne have tildelt en vagt med passende rolle.
+- Hotelmanageren: vil gerne bemande et ubemandet vagt med en medarbejder.
+- Medarbjeder: vil gerne have tildelt en vagt med passende rolle.
 
 preconditions:
-    ubemandet vagt
+- Ubemandet vagt
 
 postconditions: 
-    vagt er bemandet med passende rolle og tidsrum. 
+- Vagt er bemandet med passende rolle og tidsrum. 
 
 Main success:
 
@@ -87,15 +87,14 @@ Level: User goal
 primary actor: Hotelmanageren
 
 Stakeholders and interests: 
-    Hotelmanageren: vil gerne ændre en bemandet vagt 
-
-    Medarbjeder: vil gerne have ændret en vagt med passende rolle.
+- Hotelmanageren: vil gerne ændre en bemandet vagt 
+- Medarbjeder: vil gerne have ændret en vagt med passende rolle.
 
 preconditions: 
-    en bemandet vagt bliver meldt afbud på
+- En bemandet vagt bliver meldt afbud på
 
 postconditions: 
-    vagt er bemandet af ny medarbjeder med passende rolle og tidsrum eller er blevet ubemandet. 
+- Vagt er bemandet af ny medarbjeder med passende rolle og tidsrum eller er blevet ubemandet. 
 
 Main success:  
 
