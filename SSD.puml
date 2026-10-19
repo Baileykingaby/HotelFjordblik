@@ -30,27 +30,25 @@ actor "Hotelmanager" as H
 participant ": System" as S
 
 H -> S : seLedigeVagter()
-activate S
+
 S --> H : ledigeVagter
-deactivate S
 
 H -> S : vælgVagt(vagtId)
-activate S
-deactivate S
 
-H -> S : tildelMedarbejder(medarbejderId)
-activate S
+
+H -> S : tildelMedarbejder(medarbejder)
+
 
 alt Medarbejderen har en overlappende vagt
     S --> H : fejlbesked("Overlappende vagt")
 
-else Medarbejderen har ikke den krævede rolle
+else Medarbejderen har ikke den rolle
     S --> H : fejlbesked("Forkert rolle")
 
 else Gyldig tildeling
     S --> H : bemandetVagt
 end
 
-deactivate S
+
 
 @enduml
