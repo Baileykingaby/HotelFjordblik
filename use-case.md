@@ -107,3 +107,32 @@ b. Medarbejderen har ikke den krævede rolle:
     5. Hotelmanageren kan vælge en anden medarbejder i trin 3.
 
 
+
+## OCs: Use case 2: Skift medarbejder på en vagt
+
+### vælgVagt
+
+| Definition | Beskrivelse |
+|---|---|
+| Operation | `vælgVagt(vagtId)` |
+| Cross reference | Skift medarbejder på en vagt |
+| Præbetingelser | Vagten med `vagtId` eksisterer i systemet. |
+| Postbetingelser | Systemet har returneret oplysninger om den valgte vagt. |
+| Objekter | Ingen objekter oprettes eller slettes. |
+| Attributværdier | Ingen attributværdier ændres. |
+| Links | Ingen links oprettes eller fjernes. |
+| Resultat | V04 vises med dato, starttid, sluttid, krævet rolle og den nuværende medarbejder Noah. Domænets tilstand er uændret. |
+
+### skiftMedarbejder
+
+| Definition | Beskrivelse |
+|---|---|
+| Operation | `skiftMedarbejder(vagtId, medarbejder)` |
+| Cross reference | Skift medarbejder på en vagt |
+| Præbetingelser | V04 eksisterer og er tildelt Noah. Den foreslåede medarbejder eksisterer i systemet. |
+| Postbetingelser | Ved gyldig tildeling er V04 overdraget til den nye medarbejder. Ved ugyldig tildeling er domænets tilstand uændret. |
+| Objekter | Ingen objekter oprettes eller slettes. De eksisterende `Vagt`- og `Medarbejder`-objekter bevares. |
+| Attributværdier | V04's `vagtId`, `dato`, `starttid` og `sluttid` forbliver uændrede. Den krævede rolle ændres ikke. |
+| Links | Ved gyldig tildeling fjernes linket mellem Noah og V04, og et nyt link mellem Emil og V04 oprettes. Linket mellem Sara og V01 bevares. |
+| Resultat | Emil godkendes, da han har den krævede rolle, er til rådighed og ikke har overlappende vagter. Sara afvises på grund af overlap med V01. Ida afvises på grund af forkert rolle. Ved afvisning forbliver Noah tilknyttet V04, og ingen links eller attributværdier ændres. |
+
