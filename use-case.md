@@ -106,8 +106,6 @@ b. Medarbejderen har ikke den krævede rolle:
     4. Noah beholder V04, og de øvrige tildelinger er uændrede.
     5. Hotelmanageren kan vælge en anden medarbejder i trin 3.
 
-
-
 ## OCs: Use case 2: Skift medarbejder på en vagt
 
 ### vælgVagt
@@ -117,11 +115,11 @@ b. Medarbejderen har ikke den krævede rolle:
 | Operation | `vælgVagt(vagtId)` |
 | Cross reference | Skift medarbejder på en vagt |
 | Præbetingelser | Vagten med `vagtId` eksisterer i systemet. |
-| Postbetingelser | Systemet har returneret oplysninger om den valgte vagt. |
+| Postbetingelser | Oplysninger om den valgte vagt er returneret. |
 | Objekter | Ingen objekter oprettes eller slettes. |
 | Attributværdier | Ingen attributværdier ændres. |
 | Links | Ingen links oprettes eller fjernes. |
-| Resultat | vagtId vises med dato, starttid, sluttid, krævet rolle og den nuværende medarbejder. Domænets tilstand er uændret. |
+| Resultat | Den valgte vagts dato, starttid, sluttid, krævede rolle og nuværende medarbejder returneres. Domænets tilstand er uændret. |
 
 ### skiftMedarbejder
 
@@ -129,10 +127,12 @@ b. Medarbejderen har ikke den krævede rolle:
 |---|---|
 | Operation | `skiftMedarbejder(vagtId, medarbejder)` |
 | Cross reference | Skift medarbejder på en vagt |
-| Præbetingelser | vagtId eksisterer og er tildelt Noah. Den foreslåede medarbejder eksisterer i systemet. |
-| Postbetingelser | Ved gyldig tildeling er V04 overdraget til den nye medarbejder. Ved ugyldig tildeling er domænets tilstand uændret. |
+| Præbetingelser | Vagten med `vagtId` eksisterer og er tildelt en medarbejder. Den foreslåede medarbejder eksisterer i systemet. |
+| Postbetingelser | Ved gyldig tildeling er vagten overdraget til den foreslåede medarbejder. Ved ugyldig tildeling er domænets tilstand uændret. |
 | Objekter | Ingen objekter oprettes eller slettes. De eksisterende `Vagt`- og `Medarbejder`-objekter bevares. |
-| Attributværdier | vagtId `vagtId`, `dato`, `starttid` og `sluttid` forbliver uændrede. Den krævede rolle ændres ikke. |
-| Links | Ved gyldig tildeling fjernes linket mellem Noah og V04, og et nyt link mellem Emil og V04 oprettes. Linket mellem Sara og V01 bevares. |
-| Resultat | Emil godkendes, da han har den krævede rolle, er til rådighed og ikke har overlappende vagter. Sara afvises på grund af overlap med V01. Ida afvises på grund af forkert rolle. Ved afvisning forbliver Noah tilknyttet V04, og ingen links eller attributværdier ændres. |
+| Attributværdier | Vagtens `vagtId`, `dato`, `starttid` og `sluttid` forbliver uændrede. Den krævede rolle ændres ikke. |
+| Links | Ved gyldig tildeling fjernes linket mellem vagten og den tidligere medarbejder, og et nyt link oprettes mellem vagten og den nye medarbejder. Alle øvrige links bevares. |
+| Resultat | Tildelingen godkendes, hvis medarbejderen har den krævede rolle, er til rådighed i vagtens tidsrum og ikke har overlappende vagter. Ellers afvises tildelingen, og den eksisterende tilknytning bevares. Ingen objekter, attributværdier eller links ændres ved afvisning. |
+
+
 
