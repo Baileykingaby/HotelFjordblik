@@ -3,10 +3,6 @@ title Domænemodel for personaleplanlægning
 hide circle
 hide empty members
 skinparam backgroundColor white
-skinparam classBackgroundColor white
-skinparam classBorderColor black
-skinparam classFontColor black
-skinparam ArrowColor black
 
 class Medarbejder {
     navn
@@ -24,7 +20,6 @@ class Rolle {
 }
 
 class Rådighedsperiode {
-    dato
     starttid
     sluttid
 }
