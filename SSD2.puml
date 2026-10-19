@@ -33,13 +33,13 @@ participant ": System" as S
 H -> S : seVagter()
 S --> H : vagtListe
 
-H -> S : vælgVagt(V04)
+H -> S : vælgVagt(vagtId)
 S --> H : vagtDetaljer
 
-H -> S : skiftMedarbejder(V04, medarbejder)
+H -> S : skiftMedarbejder(vagtId, medarbejder)
 
 alt Emil vælges (gyldig)
-    S --> H : bekræftelse(V04, Emil)
+    S --> H : bekræftelse(vagtId, medarbejder)
 
 else Sara vælges (overlappende vagt)
     S --> H : fejlbesked("Overlappende vagt")
