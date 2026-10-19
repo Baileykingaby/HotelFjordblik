@@ -1,0 +1,32 @@
+@startuml
+title Domænemodel for personaleplanlægning
+hide circle
+hide empty members
+
+class Medarbejder {
+    navn
+}
+
+class Vagt {
+    vagtId
+    dato
+    starttid
+    sluttid
+}
+
+class Rolle {
+    navn
+}
+
+class Rådighedsperiode {
+    dato
+    starttid
+    sluttid
+}
+
+Medarbejder "0..1" -- "0..*" Vagt 
+Medarbejder "0..*" -- "1" Rolle 
+Vagt "0..*" -- "1" Rolle  
+Medarbejder "1" -- "0..*" Rådighedsperiode 
+
+@enduml
