@@ -1,53 +1,58 @@
 # Aktører & Mål
+
 ## Aktør
-- Hotelmanageren 
+
+- Hotelmanageren
 - Medarbjeder
 
 ## Mål
+
 - Bemand vagt
 
+---
+
 # Use-Case 1
-Scope: Personaleplanlægning
 
-Level: User goal
+- **Scope:** Personaleplanlægning
+- **Level:** User goal
+- **Primary actor:** Hotelmanageren
 
-primary actor: Hotelmanageren
+**Stakeholders and interests:**
 
-Stakeholders and interests: 
 - Hotelmanageren: vil gerne bemande et ubemandet vagt med en medarbejder.
 - Medarbjeder: vil gerne have tildelt en vagt med passende rolle.
 
-preconditions:
+**Preconditions:**
+
 - Ubemandet vagt
 
-postconditions: 
-- Vagt er bemandet med passende rolle og tidsrum. 
+**Postconditions:**
 
-Main success:
+- Vagt er bemandet med passende rolle og tidsrum.
 
-    1. Hotelmanageren vil gerne bemande en vagt
-    2. Hotelmanageren vælger den ledig vagt
-    3. Hotelmanageren tildeler vagt til gyldig medarbjeder
-    4. systemet skal registrerer vagten 
-    5. systemet viser resultatet af tildeling
+**Main success:**
 
-Extensions:
+1. Hotelmanageren vil gerne bemande en vagt
+2. Hotelmanageren vælger den ledig vagt
+3. Hotelmanageren tildeler vagt til gyldig medarbjeder
+4. systemet skal registrerer vagten
+5. systemet viser resultatet af tildeling
 
-    a. Medarbejderen har en overlappende vagt:
-        1. Hotelmanageren vælger Noah til V01 kl. 07.00–15.00.
-        2. Systemet opdager, at Noah allerede er tildelt V04
-        kl. 12.00–15.00.
-        3. Systemet afviser tildelingen og forklarer, at vagterne overlapper.
-        4. V01 forbliver ubemandet, og Noah beholder V04.
-        5. Hotelmanageren kan vælge en anden medarbejder i trin 3.
+**Extensions:**
 
-    b. Medarbejderen har ikke den krævede rolle:
-        1. Hotelmanageren vælger Ida til V01, som kræver en receptionist.
-        2. Systemet opdager, at Ida har rollen køkken.
-        3. Systemet afviser tildelingen og forklarer, at medarbejderen
-        ikke har den krævede rolle.
-        4. V01 forbliver ubemandet, og de eksisterende tildelinger er uændrede.
-        5. Hotelmanageren kan vælge en anden medarbejder i trin 3.
+- **a. Medarbejderen har en overlappende vagt:**
+    1. Hotelmanageren vælger Noah til V01 kl. 07.00–15.00.
+    2. Systemet opdager, at Noah allerede er tildelt V04 kl. 12.00–15.00.
+    3. Systemet afviser tildelingen og forklarer, at vagterne overlapper.
+    4. V01 forbliver ubemandet, og Noah beholder V04.
+    5. Hotelmanageren kan vælge en anden medarbejder i trin 3.
+
+- **b. Medarbejderen har ikke den krævede rolle:**
+    1. Hotelmanageren vælger Ida til V01, som kræver en receptionist.
+    2. Systemet opdager, at Ida har rollen køkken.
+    3. Systemet afviser tildelingen og forklarer, at medarbejderen ikke har den krævede rolle.
+    4. V01 forbliver ubemandet, og de eksisterende tildelinger er uændrede.
+    5. Hotelmanageren kan vælge en anden medarbejder i trin 3.
 
 ## Use case 1: Bemande vagt
 
@@ -76,49 +81,48 @@ Extensions:
 | Attributværdier | Ingen attributværdier ændres. Vagtens `vagtId`, `dato`, `starttid` og `sluttid` bevares. |
 | Links | Et nyt link oprettes mellem `Medarbejder` og `Vagt`. Eksisterende links bevares. |
 | Resultat | Tildelingen bekræftes. Ved ugyldig tildeling forbliver domænets tilstand uændret. |
- 
 
+---
 
 # Use-Case 2
-Scope: Personaleplanlægning 
 
-Level: User goal
+- **Scope:** Personaleplanlægning
+- **Level:** User goal
+- **Primary actor:** Hotelmanageren
 
-primary actor: Hotelmanageren
+**Stakeholders and interests:**
 
-Stakeholders and interests: 
-- Hotelmanageren: vil gerne ændre en bemandet vagt 
+- Hotelmanageren: vil gerne ændre en bemandet vagt
 - Medarbjeder: vil gerne have ændret en vagt med passende rolle.
 
-preconditions: 
+**Preconditions:**
+
 - En bemandet vagt bliver meldt afbud på
 
-postconditions: 
-- Vagt er bemandet af ny medarbjeder med passende rolle og tidsrum eller er blevet ubemandet. 
+**Postconditions:**
 
-Main success:  
+- Vagt er bemandet af ny medarbjeder med passende rolle og tidsrum eller er blevet ubemandet.
 
-    1. Hotelmanageren vil gerne ændre en bemandet vagt
-    2. Hotelmanageren vælger en bemandet vagt
-    3. Hotelmanageren tildeler vagt til en ny gyldig medarbjeder
-    4. systemet skal registrerer vagten 
-    5. systemet viser resultatet af tildeling
+**Main success:**
 
-Extensions:
+1. Hotelmanageren vil gerne ændre en bemandet vagt
+2. Hotelmanageren vælger en bemandet vagt
+3. Hotelmanageren tildeler vagt til en ny gyldig medarbjeder
+4. systemet skal registrerer vagten
+5. systemet viser resultatet af tildeling
 
-a. Medarbejderen har en overlappende vagt:
+**Extensions:**
 
+- **a. Medarbejderen har en overlappende vagt:**
     1. Hotelmanageren vælger Sara til at overtage V04 kl. 12.00–15.00.
     2. Systemet opdager, at Sara allerede har V01 kl. 07.00–15.00.
     3. Systemet afviser ændringen og forklarer, at vagterne overlapper.
     4. Noah beholder V04, og Sara beholder V01.
     5. Hotelmanageren kan vælge en anden medarbejder i trin 3.
 
-b. Medarbejderen har ikke den krævede rolle:
-
+- **b. Medarbejderen har ikke den krævede rolle:**
     1. Hotelmanageren vælger Ida til at overtage V04.
-    2. Systemet opdager, at Ida har rollen køkken,
-       mens V04 kræver en receptionist.
+    2. Systemet opdager, at Ida har rollen køkken, mens V04 kræver en receptionist.
     3. Systemet afviser ændringen og forklarer den manglende rolle.
     4. Noah beholder V04, og de øvrige tildelinger er uændrede.
     5. Hotelmanageren kan vælge en anden medarbejder i trin 3.
@@ -150,6 +154,3 @@ b. Medarbejderen har ikke den krævede rolle:
 | Attributværdier | Vagtens `vagtId`, `dato`, `starttid` og `sluttid` forbliver uændrede. Den krævede rolle ændres ikke. |
 | Links | Ved gyldig tildeling fjernes linket mellem vagten og den tidligere medarbejder, og et nyt link oprettes mellem vagten og den nye medarbejder. Alle øvrige links bevares. |
 | Resultat | Tildelingen godkendes, hvis medarbejderen har den krævede rolle, er til rådighed i vagtens tidsrum og ikke har overlappende vagter. Ellers afvises tildelingen, og den eksisterende tilknytning bevares. Ingen objekter, attributværdier eller links ændres ved afvisning. |
-
-
-
