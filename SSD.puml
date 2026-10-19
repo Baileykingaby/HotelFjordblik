@@ -1,0 +1,56 @@
+
+@startuml
+title SSD - Bemande vagt
+
+hide footbox
+
+skinparam backgroundColor white
+
+skinparam ActorStyle stickman
+skinparam ActorBackgroundColor white
+skinparam ActorBorderColor black
+skinparam ActorFontColor black
+
+skinparam ParticipantBackgroundColor white
+skinparam ParticipantBorderColor black
+skinparam ParticipantFontColor black
+
+skinparam SequenceLifeLineBackgroundColor white
+skinparam SequenceLifeLineBorderColor black
+
+skinparam ArrowColor black
+skinparam ArrowFontColor black
+
+skinparam GroupBorderColor black
+skinparam GroupBackgroundColor white
+skinparam GroupHeaderFontColor black
+skinparam GroupBodyBackgroundColor white
+
+actor "Hotelmanager" as H
+participant ": System" as S
+
+H -> S : seLedigeVagter()
+activate S
+S --> H : ledigeVagter
+deactivate S
+
+H -> S : vælgVagt(vagtId)
+activate S
+deactivate S
+
+H -> S : tildelMedarbejder(medarbejderId)
+activate S
+
+alt Medarbejderen har en overlappende vagt
+    S --> H : fejlbesked("Overlappende vagt")
+
+else Medarbejderen har ikke den krævede rolle
+    S --> H : fejlbesked("Forkert rolle")
+
+else Gyldig tildeling
+    S --> H : bemandetVagt
+end
+
+deactivate S
+
+@enduml
